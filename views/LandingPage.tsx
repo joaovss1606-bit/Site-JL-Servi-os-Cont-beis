@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { LGPD_TEXT, SERVICE_LABELS } from '../constants';
-import { CompanyIdentity, ServiceType } from '../types';
+import { LGPD_TEXT, SERVICE_LABELS } from '../constants.ts';
+import { CompanyIdentity, ServiceType } from '../types.ts';
 
 interface LandingPageProps {
   onStart: () => void;

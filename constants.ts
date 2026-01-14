@@ -1,5 +1,4 @@
-
-import { ServiceType, ServiceStatus, CompanyIdentity, SubscriptionPlan, FaqItem, CommunicationTemplate, User, UserRole } from './types';
+import { ServiceType, ServiceStatus, CompanyIdentity, SubscriptionPlan, FaqItem, CommunicationTemplate, User, UserRole } from './types.ts';
 
 // Add MOCK_ADMIN_USER for login simulation and admin dashboard
 export const MOCK_ADMIN_USER: User = {
