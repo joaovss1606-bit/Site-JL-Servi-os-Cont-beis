@@ -1,16 +1,17 @@
 
 import React, { useState } from 'react';
-import { UserRole, CompanyIdentity } from '../types';
-import { MOCK_ADMIN_USER } from '../constants';
+import { UserRole, CompanyIdentity } from '../types.ts';
+import { MOCK_ADMIN_USER } from '../constants.ts';
 
 interface LoginProps {
   onLogin: (user: any) => void;
   onBack: () => void;
   onRegister: () => void;
+  onResetPassword: () => void;
   identity: CompanyIdentity;
 }
 
-const Login: React.FC<LoginProps> = ({ onLogin, onBack, onRegister, identity }) => {
+const Login: React.FC<LoginProps> = ({ onLogin, onBack, onRegister, onResetPassword, identity }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +29,8 @@ const Login: React.FC<LoginProps> = ({ onLogin, onBack, onRegister, identity }) 
           name: email.split('@')[0],
           email,
           role: UserRole.CLIENTE,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
+          isPlanActive: false
         });
       }
       setIsLoading(false);
@@ -71,7 +73,10 @@ const Login: React.FC<LoginProps> = ({ onLogin, onBack, onRegister, identity }) 
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Senha</label>
+              <div className="flex justify-between mb-2">
+                <label className="block text-sm font-semibold text-slate-700">Senha</label>
+                <button type="button" onClick={onResetPassword} className="text-xs font-bold text-slate-400 hover:text-slate-600">Esqueceu a senha?</button>
+              </div>
               <div className="relative">
                 <i className="fas fa-lock absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 <input 

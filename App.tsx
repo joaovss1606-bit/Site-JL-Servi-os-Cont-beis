@@ -11,22 +11,22 @@ import {
   SubscriptionPlan,
   FaqItem,
   InternalAlert
-} from './types';
+} from './types.ts';
 import { 
   MOCK_ADMIN_USER, 
   DEFAULT_COMPANY_IDENTITY, 
   INITIAL_PLANS, 
   INITIAL_FAQ 
-} from './constants';
-import Navbar from './components/Navbar';
-import LandingPage from './views/LandingPage';
-import Login from './views/Login';
-import ClientDashboard from './views/ClientDashboard';
-import AdminDashboard from './views/AdminDashboard';
-import Register from './views/Register';
-import PricingPage from './views/PricingPage';
-import FaqPage from './views/FaqPage';
-import PasswordReset from './views/PasswordReset';
+} from './constants.ts';
+import Navbar from './components/Navbar.tsx';
+import LandingPage from './views/LandingPage.tsx';
+import Login from './views/Login.tsx';
+import ClientDashboard from './views/ClientDashboard.tsx';
+import AdminDashboard from './views/AdminDashboard.tsx';
+import Register from './views/Register.tsx';
+import PricingPage from './views/PricingPage.tsx';
+import FaqPage from './views/FaqPage.tsx';
+import PasswordReset from './views/PasswordReset.tsx';
 
 const App: React.FC = () => {
   const [auth, setAuth] = useState<AuthState>({ user: null, isAuthenticated: false });
@@ -44,12 +44,16 @@ const App: React.FC = () => {
   useEffect(() => {
     const savedAuth = localStorage.getItem('portal_auth');
     if (savedAuth) {
-      const parsed = JSON.parse(savedAuth);
-      setAuth(parsed);
-      if (parsed.user?.role === UserRole.CLIENTE && !parsed.user.isPlanActive) {
-        setView('PRICING');
-      } else if (parsed.isAuthenticated) {
-        setView('DASHBOARD');
+      try {
+        const parsed = JSON.parse(savedAuth);
+        setAuth(parsed);
+        if (parsed.user?.role === UserRole.CLIENTE && !parsed.user.isPlanActive) {
+          setView('PRICING');
+        } else if (parsed.isAuthenticated) {
+          setView('DASHBOARD');
+        }
+      } catch (e) {
+        localStorage.removeItem('portal_auth');
       }
     }
   }, []);
