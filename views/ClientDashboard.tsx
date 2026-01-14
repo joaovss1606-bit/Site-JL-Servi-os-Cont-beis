@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { User, ServiceRequest, ServiceStatus, ServiceType, Invoice, InvoiceData, CompanyIdentity, SubscriptionPlan, Document, CommunicationLog } from '../types';
-import { SERVICE_LABELS, STATUS_COLORS, LGPD_TEXT } from '../constants';
+import { User, ServiceRequest, ServiceStatus, ServiceType, Invoice, InvoiceData, CompanyIdentity, SubscriptionPlan, Document, CommunicationLog } from '../types.ts';
+import { SERVICE_LABELS, STATUS_COLORS, LGPD_TEXT } from '../constants.ts';
 
 interface ClientDashboardProps {
   user: User;

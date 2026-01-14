@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { CompanyIdentity, SubscriptionPlan } from '../types';
+import { CompanyIdentity, SubscriptionPlan } from '../types.ts';
 
 interface PricingPageProps {
   identity: CompanyIdentity;

@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
-import { UserRole, CompanyIdentity } from '../types';
-import { LGPD_TEXT } from '../constants';
+import { UserRole, CompanyIdentity } from '../types.ts';
+import { LGPD_TEXT } from '../constants.ts';
 
 interface RegisterProps {
   onRegister: (user: any) => void;

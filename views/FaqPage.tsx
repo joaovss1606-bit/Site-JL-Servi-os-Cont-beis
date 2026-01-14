@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { FaqItem, CompanyIdentity } from '../types';
+import { FaqItem, CompanyIdentity } from '../types.ts';
 
 interface FaqPageProps {
   faqs: FaqItem[];

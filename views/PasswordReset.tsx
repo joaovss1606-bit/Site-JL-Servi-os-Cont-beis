@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { CompanyIdentity } from '../types';
+import { CompanyIdentity } from '../types.ts';
 
 interface PasswordResetProps {
   identity: CompanyIdentity;
@@ -34,7 +33,7 @@ const PasswordReset: React.FC<PasswordResetProps> = ({ identity, onBack }) => {
     <div className="min-h-[80vh] flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl border border-slate-100 p-8">
         {step !== 'SUCCESS' && (
-          <button onClick={onBack} className="text-slate-400 hover:text-slate-900 mb-8 flex items-center gap-2">
+          <button onClick={onBack} className="text-slate-400 hover:text-slate-900 mb-8 flex items-center gap-2 transition-colors">
             <i className="fas fa-chevron-left"></i> Voltar
           </button>
         )}

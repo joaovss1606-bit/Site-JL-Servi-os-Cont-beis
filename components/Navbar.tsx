@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { AuthState, UserRole, CompanyIdentity } from '../types';
+import { AuthState, UserRole, CompanyIdentity } from '../types.ts';
 
 interface NavbarProps {
   auth: AuthState;

@@ -1,9 +1,8 @@
-
 import React, { useState } from 'react';
 import { 
   User, ServiceRequest, ServiceStatus, ServiceType, Invoice, InvoiceData, CompanyIdentity, SubscriptionPlan, FaqItem, InternalAlert, CommunicationTemplate
-} from '../types';
-import { SERVICE_LABELS, STATUS_COLORS, COMMUNICATION_TEMPLATES } from '../constants';
+} from '../types.ts';
+import { SERVICE_LABELS, STATUS_COLORS, COMMUNICATION_TEMPLATES } from '../constants.ts';
 
 interface AdminDashboardProps {
   admin: User;
@@ -29,7 +28,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
 }) => {
   const [activeView, setActiveView] = useState<'OVERVIEW' | 'SERVICES' | 'CLIENTS' | 'PLANS' | 'FAQ' | 'CONFIG'>('OVERVIEW');
   const [editingPlan, setEditingPlan] = useState<SubscriptionPlan | null>(null);
-  const [copyingTemplate, setCopyingTemplate] = useState<{template: CommunicationTemplate, data: any} | null>(null);
 
   const stats = {
     revenue: invoices.reduce((a, b) => a + b.value, 0),
@@ -195,34 +193,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </table>
               </div>
             </div>
-          )}
-
-          {activeView === 'SERVICES' && (
-             <div className="space-y-6 animate-in fade-in">
-                <h2 className="text-2xl font-black">Demandas em Aberto</h2>
-                <div className="grid gap-4">
-                  {services.map(svc => (
-                    <div key={svc.id} className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex items-center justify-between">
-                       <div className="flex items-center gap-6">
-                          <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xl ${STATUS_COLORS[svc.status]}`}>
-                            <i className="fas fa-briefcase"></i>
-                          </div>
-                          <div>
-                            <p className="font-bold text-slate-900">{svc.clientName} - {SERVICE_LABELS[svc.type]}</p>
-                            <p className="text-xs text-slate-400">ID: {svc.id.substr(0,8)} | Atualizado {new Date(svc.updatedAt).toLocaleDateString()}</p>
-                          </div>
-                       </div>
-                       <select 
-                        value={svc.status}
-                        onChange={(e) => setServices(prev => prev.map(s => s.id === svc.id ? {...s, status: e.target.value as ServiceStatus} : s))}
-                        className="bg-slate-50 border-none rounded-xl text-xs font-bold px-4 py-2 outline-none cursor-pointer"
-                       >
-                         {Object.values(ServiceStatus).map(st => <option key={st} value={st}>{st.replace('_', ' ')}</option>)}
-                       </select>
-                    </div>
-                  ))}
-                </div>
-             </div>
           )}
         </div>
       </main>
