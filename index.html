@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>J L Serviços Contábeis | Atendimento Online</title>
 
   <link rel="stylesheet" href="style.css">
@@ -12,12 +12,14 @@
 <body>
 
 <header class="site-header">
-  <div class="container header-center">
+  <div class="container">
 
-    <h1 class="site-title">J L Serviços Contábeis</h1>
-    <p class="site-subtitle">Atendimento Online</p>
+    <div class="header-top">
+      <h1 class="site-title">J L Serviços Contábeis</h1>
 
-    <button class="menu-toggle">☰</button>
+      <!-- BOTÃO MOBILE -->
+      <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
 
     <nav class="main-nav">
       <ul class="menu">
@@ -25,18 +27,18 @@
         <li class="menu-item dropdown">
           <a href="#" class="dropdown-toggle">Serviços</a>
           <ul class="dropdown-menu">
-            <li><a href="/jl-servicos-contabeis/servicos/mei/">MEI</a></li>
-            <li><a href="/jl-servicos-contabeis/servicos/pessoa-fisica/">Pessoa Física</a></li>
-            <li><a href="/jl-servicos-contabeis/servicos/certidoes-regularizacoes/">Certidões e Regularizações</a></li>
-            <li><a href="/jl-servicos-contabeis/servicos/certificado-digital/">Certificado Digital</a></li>
-            <li><a href="/jl-servicos-contabeis/servicos/contabeis/">Serviços Contábeis</a></li>
-            <li><a href="/jl-servicos-contabeis/servicos/outros/">Outros Serviços</a></li>
+            <li><a href="servicos/MEI/">MEI</a></li>
+            <li><a href="servicos/pessoa-fisica/">Pessoa Física</a></li>
+            <li><a href="servicos/certidoes-regularizacoes/">Certidões</a></li>
+            <li><a href="servicos/certificado-digital/">Certificado Digital</a></li>
+            <li><a href="servicos/contabeis/">Serviços Contábeis</a></li>
+            <li><a href="servicos/outros/">Outros</a></li>
           </ul>
         </li>
 
-        <li class="menu-item"><a href="/jl-servicos-contabeis/blog/">Blog</a></li>
-        <li class="menu-item"><a href="/jl-servicos-contabeis/sobre/">Sobre</a></li>
-        <li class="menu-item"><a href="/jl-servicos-contabeis/lgpd/">LGPD</a></li>
+        <li class="menu-item"><a href="blog/">Blog</a></li>
+        <li class="menu-item"><a href="sobre/">Sobre</a></li>
+        <li class="menu-item"><a href="lgpd/">LGPD</a></li>
 
       </ul>
     </nav>
@@ -44,7 +46,7 @@
   </div>
 </header>
 
-<main class="container main-content">
+<main class="container">
 
 <section class="blog-home">
 
@@ -52,7 +54,7 @@
     <img src="https://via.placeholder.com/800x400">
     <div class="blog-content">
       <h2>Contabilidade Geral</h2>
-      <p>Conceitos essenciais para sua organização financeira.</p>
+      <p>Entenda os principais conceitos contábeis.</p>
     </div>
   </article>
 
@@ -60,7 +62,7 @@
     <img src="https://via.placeholder.com/800x400">
     <div class="blog-content">
       <h2>Legislação Contábil</h2>
-      <p>Atualizações legais que impactam você.</p>
+      <p>Mudanças que impactam MEIs e empresas.</p>
     </div>
   </article>
 
@@ -68,7 +70,7 @@
     <img src="https://via.placeholder.com/800x400">
     <div class="blog-content">
       <h2>Departamento Pessoal</h2>
-      <p>Direitos, deveres e folha.</p>
+      <p>Folha, direitos e obrigações.</p>
     </div>
   </article>
 
@@ -76,7 +78,7 @@
     <img src="https://via.placeholder.com/800x400">
     <div class="blog-content">
       <h2>Fiscal</h2>
-      <p>Impostos e obrigações explicados.</p>
+      <p>Tributos e impostos explicados.</p>
     </div>
   </article>
 
@@ -84,14 +86,14 @@
     <img src="https://via.placeholder.com/800x400">
     <div class="blog-content">
       <h2>Contábil</h2>
-      <p>Boas práticas e organização.</p>
+      <p>Dicas para manter tudo organizado.</p>
     </div>
   </article>
 
 </section>
+
 </main>
 
 <script src="menu.js"></script>
 </body>
 </html>
-
