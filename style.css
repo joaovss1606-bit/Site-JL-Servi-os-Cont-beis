@@ -1,16 +1,19 @@
-/* =====================
-   RESET & BASE
-===================== */
+/* ==================================================
+   RESET GLOBAL
+================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ==================================================
+   BASE
+================================================== */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(180deg, #0b1c2d, #ffffff);
-  color: #1f2933;
+  background: linear-gradient(135deg, #0b1c2d, #102a44);
+  color: #ffffff;
 }
 
 .container {
@@ -19,12 +22,11 @@ body {
   margin: auto;
 }
 
-/* =====================
+/* ==================================================
    HEADER
-===================== */
+================================================== */
 .site-header {
   padding: 40px 0 30px;
-  background: transparent;
 }
 
 .header-center {
@@ -34,7 +36,7 @@ body {
 .site-title {
   font-size: 2.6rem;
   font-weight: 700;
-  color: #0b1c2d;
+  color: #ffffff;
 }
 
 .site-subtitle {
@@ -43,9 +45,9 @@ body {
   margin-bottom: 25px;
 }
 
-/* =====================
-   MENU
-===================== */
+/* ==================================================
+   MENU PRINCIPAL
+================================================== */
 .main-nav {
   width: 100%;
 }
@@ -67,20 +69,19 @@ body {
   text-align: center;
   padding: 14px 10px;
   text-decoration: none;
-  color: #0b1c2d;
+  color: #ffffff;
   font-weight: 600;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 .menu-item a:hover {
-  background: #0b1c2d;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* =====================
+/* ==================================================
    DROPDOWN
-===================== */
+================================================== */
 .dropdown-menu {
   position: absolute;
   top: 110%;
@@ -88,17 +89,19 @@ body {
   width: 100%;
   background: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: all 0.3s ease;
-  z-index: 10;
+  z-index: 99;
 }
 
 .dropdown-menu li a {
+  display: block;
   padding: 12px;
+  color: #0b1c2d;
   font-weight: 500;
 }
 
@@ -108,9 +111,9 @@ body {
   transform: translateY(0);
 }
 
-/* =====================
-   BLOG HOME
-===================== */
+/* ==================================================
+   BLOG / CONTEÚDO
+================================================== */
 .blog-home {
   display: grid;
   grid-template-columns: 1fr;
@@ -119,16 +122,15 @@ body {
 }
 
 .blog-highlight {
-  background: #ffffff;
+  background: rgba(255,255,255,0.05);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
 }
 
 .blog-highlight:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
 .blog-highlight img {
@@ -142,13 +144,13 @@ body {
 }
 
 .blog-content h2 {
-  color: #0b1c2d;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .blog-content p {
+  color: rgba(255,255,255,0.85);
   margin-bottom: 20px;
-  color: #4b5563;
 }
 
 .blog-actions {
@@ -156,42 +158,40 @@ body {
   gap: 15px;
 }
 
-/* =====================
+/* ==================================================
    BOTÕES
-===================== */
+================================================== */
 .btn {
-  background: #0b1c2d;
-  color: #ffffff;
-  padding: 10px 18px;
-  border-radius: 30px;
+  background: linear-gradient(135deg, #bd9617, #e0b44c);
+  color: #0b1c2d;
+  padding: 10px 20px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: filter 0.3s ease;
 }
 
 .btn:hover {
-  background: #bd9617;
-  color: #ffffff;
+  filter: brightness(1.05);
 }
 
 .btn-outline {
-  border: 2px solid #0b1c2d;
-  color: #0b1c2d;
-  padding: 8px 18px;
-  border-radius: 30px;
+  border: 2px solid #bd9617;
+  color: #bd9617;
+  padding: 8px 20px;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s ease;
 }
 
 .btn-outline:hover {
-  background: #0b1c2d;
-  color: #ffffff;
+  background: #bd9617;
+  color: #0b1c2d;
 }
 
-/* =====================
-   CTA FIXO
-===================== */
+/* ==================================================
+   CTA WHATSAPP
+================================================== */
 .cta-fixed {
   position: fixed;
   bottom: 20px;
@@ -202,13 +202,13 @@ body {
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  z-index: 99;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  z-index: 999;
 }
 
-/* =====================
+/* ==================================================
    BOTÃO TOPO
-===================== */
+================================================== */
 #btn-topo {
   position: fixed;
   bottom: 80px;
@@ -221,151 +221,37 @@ body {
   color: #ffffff;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* =====================
+/* ==================================================
    RESPONSIVO
-===================== */
+================================================== */
 @media (max-width: 768px) {
 
   .menu {
     flex-direction: column;
   }
 
-  .menu-item a {
-    font-size: 1rem;
+  .menu-item {
+    width: 100%;
   }
 
   .dropdown-menu {
     position: static;
-    box-shadow: none;
-    transform: none;
     opacity: 1;
     visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
     margin-top: 10px;
   }
 
-  .cta-fixed {
-    padding: 12px 18px;
-    font-size: 0.9rem;
+  .dropdown-menu li a {
+    color: #ffffff;
+    text-align: center;
   }
 }
-/* Correção global de legibilidade */
-body {
-  color: #ffffff;
-}
 
-section, 
-.card,
-.blog-card,
-.plan-card {
-  color: #ffffff;
-}
-
-p {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-h1, h2, h3, h4 {
-  color: #ffffff;
-}
-
-/* Textos secundários */
-.text-muted {
-  color: rgba(255, 255, 255, 0.75);
-}
-/* FORÇA CONTRASTE EM FUNDO ESCURO */
-body {
-  background-color: #0b1c2d;
-  color: #ffffff !important;
-}
-
-p, span, li {
-  color: rgba(255,255,255,0.9) !important;
-}
-
-h1, h2, h3, h4, h5 {
-  color: #ffffff !important;
-}
-/* ===== RESET DE LEGIBILIDADE (SEGURO) ===== */
-
-body {
-  background: linear-gradient(135deg, #0b1c2d, #102a44);
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Textos */
-p, li, span {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Títulos */
-h1, h2, h3, h4, h5 {
-  color: #ffffff;
-}
-
-/* Links */
-a {
-  color: #bd9617;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.85;
-}
-
-/* Cards */
-.card,
-.blog-card,
-.plan-card,
-section {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border-radius: 16px;
-}
-
-/* Botões */
-button,
-.btn {
-  background: linear-gradient(135deg, #bd9617, #e0b44c);
-  color: #0b1c2d;
-  border: none;
-  border-radius: 999px;
-  padding: 12px 24px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-button:hover,
-.btn:hover {
-  filter: brightness(1.05);
-}
-/* ===== MENU SUPERIOR ===== */
-
-nav {
-  background: transparent;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  list-style: none;
-  padding: 0;
-}
-
-nav ul li a {
-  display: block;
-  padding: 12px 16px;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 8px;
-}
-
-nav ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
 
 
