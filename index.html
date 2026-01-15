@@ -1,11 +1,136 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Teste GitHub Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J L Serviços Contábeis | Atendimento Online</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <h1>GitHub Pages está funcionando</h1>
-  <p>Se você está vendo isso, o problema não é o Pages.</p>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container header-center">
+
+      <h1 class="site-title">J L Serviços Contábeis</h1>
+      <p class="site-subtitle">Atendimento Online</p>
+
+      <!-- MENU -->
+      <nav class="main-nav">
+        <ul class="menu">
+
+          <li class="menu-item dropdown">
+            <a href="#">Serviços</a>
+            <ul class="dropdown-menu">
+              <li><a href="servicos/mei/">MEI</a></li>
+              <li><a href="servicos/pessoa-fisica/">Pessoa Física</a></li>
+              <li><a href="servicos/certidoes-regularizacoes/">Certidões e Regularizações</a></li>
+              <li><a href="servicos/certificado-digital/">Certificado Digital</a></li>
+              <li><a href="servicos/contabeis/">Serviços Contábeis</a></li>
+              <li><a href="servicos/outros/">Outros Serviços</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item"><a href="blog/">Blog</a></li>
+          <li class="menu-item"><a href="sobre/">Sobre</a></li>
+          <li class="menu-item"><a href="lgpd/">LGPD</a></li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ===== BLOG HOME ===== -->
+  <main class="container">
+
+    <!-- BLOCO BLOG -->
+    <section class="blog-home">
+
+      <!-- Contabilidade Geral -->
+      <article class="blog-highlight">
+        <img src="https://via.placeholder.com/800x400" alt="Contabilidade Geral">
+        <div class="blog-content">
+          <h2>Contabilidade Geral</h2>
+          <p>Entenda os principais conceitos contábeis e como eles impactam o seu negócio ou sua vida financeira.</p>
+          <div class="blog-actions">
+            <a href="blog/contabilidade/" class="btn">Ler mais</a>
+            <a href="blog/contabilidade/" class="btn-outline">Ver todos</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Legislação -->
+      <article class="blog-highlight">
+        <img src="https://via.placeholder.com/800x400" alt="Legislação Contábil">
+        <div class="blog-content">
+          <h2>Legislação Contábil</h2>
+          <p>Fique por dentro das mudanças na legislação que afetam MEIs, pessoas físicas e empresas.</p>
+          <div class="blog-actions">
+            <a href="blog/legislacao/" class="btn">Ler mais</a>
+            <a href="blog/legislacao/" class="btn-outline">Ver todos</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Departamento Pessoal -->
+      <article class="blog-highlight">
+        <img src="https://via.placeholder.com/800x400" alt="Departamento Pessoal">
+        <div class="blog-content">
+          <h2>Departamento Pessoal</h2>
+          <p>Informações importantes sobre folha de pagamento, direitos trabalhistas e obrigações.</p>
+          <div class="blog-actions">
+            <a href="blog/departamento-pessoal/" class="btn">Ler mais</a>
+            <a href="blog/departamento-pessoal/" class="btn-outline">Ver todos</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Fiscal -->
+      <article class="blog-highlight">
+        <img src="https://via.placeholder.com/800x400" alt="Fiscal">
+        <div class="blog-content">
+          <h2>Fiscal</h2>
+          <p>Tributos, impostos e obrigações fiscais explicadas de forma simples.</p>
+          <div class="blog-actions">
+            <a href="blog/fiscal/" class="btn">Ler mais</a>
+            <a href="blog/fiscal/" class="btn-outline">Ver todos</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Contábil -->
+      <article class="blog-highlight">
+        <img src="https://via.placeholder.com/800x400" alt="Contábil">
+        <div class="blog-content">
+          <h2>Contábil</h2>
+          <p>Dicas práticas para manter sua contabilidade organizada e segura.</p>
+          <div class="blog-actions">
+            <a href="blog/contabil/" class="btn">Ler mais</a>
+            <a href="blog/contabil/" class="btn-outline">Ver todos</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- ===== CTA FIXO ===== -->
+  <a href="https://wa.me/5500000000000" class="cta-fixed" target="_blank">
+    Fale no WhatsApp
+  </a>
+
+  <!-- ===== BOTÃO TOPO ===== -->
+  <button id="btn-topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    ↑
+  </button>
+
 </body>
 </html>
