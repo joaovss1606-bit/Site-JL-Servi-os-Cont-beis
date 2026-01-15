@@ -254,4 +254,45 @@ body {
   background: #bd9617;
   color: #0b1c2d;
 }
+/* ===== DROPDOWN CORRIGIDO ===== */
+
+.menu-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+.menu-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Mantém o menu aberto ao passar o mouse na lista */
+.dropdown-menu:hover {
+  display: block;
+}
+
+/* Itens do dropdown */
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f2f2f2;
+}
 
