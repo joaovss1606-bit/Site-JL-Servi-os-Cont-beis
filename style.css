@@ -275,4 +275,21 @@ h1, h2, h3, h4 {
 .text-muted {
   color: rgba(255, 255, 255, 0.75);
 }
+/* FORÇA CONTRASTE EM FUNDO ESCURO */
+body {
+  background-color: #0b1c2d;
+  color: #ffffff !important;
+}
+
+* {
+  color: inherit;
+}
+
+p, span, li {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #ffffff !important;
+}
 
