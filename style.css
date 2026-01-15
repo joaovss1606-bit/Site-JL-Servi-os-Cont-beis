@@ -1,90 +1,253 @@
-/* ===== Reset básico ===== */
+/* =====================
+   RESET & BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-{ margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #0b1c2d, #ffffff);
+  color: #1f2933;
+}
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
 
-body { background: linear-gradient(to bottom, #1e3c72, #2a5298); color: #fff; line-height: 1.6; }
+/* =====================
+   HEADER
+===================== */
+.site-header {
+  padding: 40px 0 30px;
+  background: transparent;
+}
 
-a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+.header-center {
+  text-align: center;
+}
 
-a:hover { color: #bd9617; }
+.site-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #0b1c2d;
+}
 
-/* ===== Header ===== */ header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background-color: rgba(0,0,0,0.5); position: sticky; top: 0; z-index: 100; }
+.site-subtitle {
+  font-size: 1.1rem;
+  color: #bd9617;
+  margin-bottom: 25px;
+}
 
-.logo { font-size: 1.8rem; font-weight: 700; }
+/* =====================
+   MENU
+===================== */
+.main-nav {
+  width: 100%;
+}
 
-.subtitulo { font-size: 1rem; font-weight: 400; color: #fff; margin-top: 0.3rem; }
+.menu {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 10px;
+}
 
-.navbar ul { display: flex; list-style: none; gap: 1.5rem; }
+.menu-item {
+  flex: 1;
+  position: relative;
+}
 
-.navbar li a { font-weight: 500; }
+.menu-item a {
+  display: block;
+  text-align: center;
+  padding: 14px 10px;
+  text-decoration: none;
+  color: #0b1c2d;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
 
-.navbar li a:hover { color: #bd9617; }
+.menu-item a:hover {
+  background: #0b1c2d;
+  color: #ffffff;
+}
 
-/* ===== Blog ===== */ .blog { padding: 3rem 2rem; background: linear-gradient(to bottom, rgba(30,60,114,0.8), rgba(42,82,152,0.8)); }
+/* =====================
+   DROPDOWN
+===================== */
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
 
-.blog h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; color: #bd9617; }
+.dropdown-menu li a {
+  padding: 12px;
+  font-weight: 500;
+}
 
-.cards-container { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
-.card { background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); width: 280px; transition: all 0.3s ease; }
+/* =====================
+   BLOG HOME
+===================== */
+.blog-home {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 60px 0;
+}
 
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid #bd9617; }
+.blog-highlight {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-.card.destaque { border: 2px solid #bd9617; transform: scale(1.05); }
+.blog-highlight:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
 
-.blog-acessar { text-align: center; margin-top: 2rem; }
+.blog-highlight img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
 
-.blog-acessar .botao { display: inline-block; padding: 0.8rem 1.5rem; background-color: #bd9617; color: #fff; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; }
+.blog-content {
+  padding: 25px;
+}
 
-.blog-acessar .botao:hover { background-color: #fff; color: #1e3c72; }
+.blog-content h2 {
+  color: #0b1c2d;
+  margin-bottom: 10px;
+}
 
-/* ===== LGPD ===== */ .lgpd { background-color: rgba(0,0,0,0.2); padding: 1.5rem; margin: 2rem auto; border-radius: 10px; text-align: center; font-size: 0.9rem; }
+.blog-content p {
+  margin-bottom: 20px;
+  color: #4b5563;
+}
 
-/* ===== Serviços ===== */ .servicos { padding: 3rem 2rem; }
+.blog-actions {
+  display: flex;
+  gap: 15px;
+}
 
-.servicos h2 { text-align: center; font-size: 2rem; color: #bd9617; margin-bottom: 2rem; }
+/* =====================
+   BOTÕES
+===================== */
+.btn {
+  background: #0b1c2d;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-.servicos h3 { color: #bd9617; margin-top: 2rem; text-align: left; }
+.btn:hover {
+  background: #bd9617;
+  color: #ffffff;
+}
 
-/* ===== Planos ===== */ .planos { padding: 3rem 2rem; background: linear-gradient(to bottom, rgba(30,60,114,0.8), rgba(42,82,152,0.8)); }
+.btn-outline {
+  border: 2px solid #0b1c2d;
+  color: #0b1c2d;
+  padding: 8px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
 
-.planos .card { width: 300px; text-align: center; }
+.btn-outline:hover {
+  background: #0b1c2d;
+  color: #ffffff;
+}
 
-.planos .botao { display: inline-block; margin-top: 1rem; padding: 0.8rem 1.5rem; background-color: #bd9617; color: #fff; border-radius: 10px; font-weight: 600; transition: all 0.3s ease; }
+/* =====================
+   CTA FIXO
+===================== */
+.cta-fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 99;
+}
 
-.planos .botao:hover { background-color: #fff; color: #1e3c72; }
+/* =====================
+   BOTÃO TOPO
+===================== */
+#btn-topo {
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #0b1c2d;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-/* ===== FAQ ===== */ .faq { padding: 3rem 2rem; background-color: rgba(0,0,0,0.1); }
+/* =====================
+   RESPONSIVO
+===================== */
+@media (max-width: 768px) {
 
-.faq h2 { text-align: center; margin-bottom: 2rem; color: #bd9617; }
+  .menu {
+    flex-direction: column;
+  }
 
-.faq-item { margin-bottom: 1rem; }
+  .menu-item a {
+    font-size: 1rem;
+  }
 
-.faq-question { width: 100%; text-align: left; padding: 0.8rem 1rem; background-color: rgba(255,255,255,0.1); border: none; border-radius: 8px; cursor: pointer; font-weight: 600; color: #fff; }
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 10px;
+  }
 
-.faq-question:hover { background-color: #bd9617; color: #fff; }
-
-.faq-answer { display: none; padding: 0.8rem 1rem; background-color: rgba(255,255,255,0.05); border-radius: 8px; margin-top: 0.5rem; }
-
-/* ===== Sobre ===== */ .sobre { padding: 3rem 2rem; text-align: center; }
-
-/* ===== Footer ===== */ footer { padding: 2rem; text-align: center; background-color: rgba(0,0,0,0.5); margin-top: 2rem; }
-
-.redes-sociais a { color: #fff; margin: 0 0.5rem; text-decoration: none; font-weight: 600; }
-
-.redes-sociais a:hover { color: #bd9617; }
-
-.lema { margin-top: 0.5rem; font-weight: 500; font-style: italic; }
-
-/* ===== Responsividade ===== */ @media (max-width: 768px) { .cards-container { flex-direction: column; align-items: center; }
-
-.navbar ul { flex-direction: column; gap: 1rem; }
-
-header { flex-direction: column; align-items: flex-start; padding: 0.5rem 1rem; /* Altura menor no mobile */ }
-
-.logo { font-size: 1.5rem; /* Logo menor no mobile */ }
-
-.subtitulo { font-size: 0.9rem; /* Subtítulo menor */ }
-
-body { padding-top: 120px; /* Espaço extra para header sticky no mobile */ } }
+  .cta-fixed {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+}
