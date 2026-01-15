@@ -1,15 +1,10 @@
-/* ==================================================
-   RESET GLOBAL
-================================================== */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ==================================================
-   BASE
-================================================== */
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(135deg, #0b1c2d, #102a44);
@@ -22,9 +17,7 @@ body {
   margin: auto;
 }
 
-/* ==================================================
-   HEADER
-================================================== */
+/* ================= HEADER ================= */
 .site-header {
   padding: 40px 0 30px;
 }
@@ -36,26 +29,32 @@ body {
 .site-title {
   font-size: 2.6rem;
   font-weight: 700;
-  color: #ffffff;
 }
 
 .site-subtitle {
-  font-size: 1.1rem;
   color: #bd9617;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-/* ==================================================
-   MENU PRINCIPAL
-================================================== */
+/* ================= MENU ================= */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
 .main-nav {
   width: 100%;
 }
 
 .menu {
+  list-style: none;
   display: flex;
   justify-content: space-between;
-  list-style: none;
   gap: 10px;
 }
 
@@ -66,43 +65,37 @@ body {
 
 .menu-item a {
   display: block;
+  padding: 14px;
   text-align: center;
-  padding: 14px 10px;
-  text-decoration: none;
   color: #ffffff;
   font-weight: 600;
   border-radius: 8px;
-  transition: background 0.3s ease;
 }
 
 .menu-item a:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.1);
 }
 
-/* ==================================================
-   DROPDOWN
-================================================== */
+/* ================= DROPDOWN DESKTOP ================= */
 .dropdown-menu {
+  list-style: none;
   position: absolute;
   top: 110%;
   left: 0;
   width: 100%;
   background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
-  list-style: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition: all 0.3s ease;
-  z-index: 99;
+  transition: 0.3s;
+  z-index: 10;
 }
 
 .dropdown-menu li a {
-  display: block;
-  padding: 12px;
   color: #0b1c2d;
-  font-weight: 500;
+  padding: 12px;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -111,26 +104,15 @@ body {
   transform: translateY(0);
 }
 
-/* ==================================================
-   BLOG / CONTEÚDO
-================================================== */
+/* ================= BLOG ================= */
 .blog-home {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
   padding: 60px 0;
 }
 
 .blog-highlight {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
-
-.blog-highlight:hover {
-  transform: translateY(-6px);
 }
 
 .blog-highlight img {
@@ -143,55 +125,27 @@ body {
   padding: 25px;
 }
 
-.blog-content h2 {
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.blog-content p {
-  color: rgba(255,255,255,0.85);
-  margin-bottom: 20px;
-}
-
 .blog-actions {
   display: flex;
   gap: 15px;
 }
 
-/* ==================================================
-   BOTÕES
-================================================== */
 .btn {
-  background: linear-gradient(135deg, #bd9617, #e0b44c);
+  background: #bd9617;
   color: #0b1c2d;
   padding: 10px 20px;
-  border-radius: 999px;
-  text-decoration: none;
+  border-radius: 30px;
   font-weight: 600;
-  transition: filter 0.3s ease;
-}
-
-.btn:hover {
-  filter: brightness(1.05);
 }
 
 .btn-outline {
   border: 2px solid #bd9617;
   color: #bd9617;
   padding: 8px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
+  border-radius: 30px;
 }
 
-.btn-outline:hover {
-  background: #bd9617;
-  color: #0b1c2d;
-}
-
-/* ==================================================
-   CTA WHATSAPP
-================================================== */
+/* ================= CTA ================= */
 .cta-fixed {
   position: fixed;
   bottom: 20px;
@@ -200,58 +154,57 @@ body {
   color: #ffffff;
   padding: 14px 22px;
   border-radius: 50px;
-  text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  z-index: 999;
+  z-index: 99;
 }
 
-/* ==================================================
-   BOTÃO TOPO
-================================================== */
+/* ================= TOPO ================= */
 #btn-topo {
   position: fixed;
   bottom: 80px;
   right: 25px;
   width: 45px;
   height: 45px;
-  border: none;
   border-radius: 50%;
+  border: none;
   background: #0b1c2d;
   color: #ffffff;
-  font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* ==================================================
-   RESPONSIVO
-================================================== */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-  .menu {
-    flex-direction: column;
+  .menu-toggle {
+    display: block;
   }
 
-  .menu-item {
-    width: 100%;
+  .menu {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu.open {
+    display: flex;
   }
 
   .dropdown-menu {
     position: static;
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
     transform: none;
     box-shadow: none;
     background: transparent;
-    margin-top: 10px;
+  }
+
+  .dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
   }
 
   .dropdown-menu li a {
     color: #ffffff;
-    text-align: center;
+    padding: 10px;
   }
 }
-
-
-
