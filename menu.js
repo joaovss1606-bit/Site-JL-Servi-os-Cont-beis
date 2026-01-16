@@ -1,25 +1,24 @@
 import { supabase } from './supabase.js';
 
-/* MENU MOBILE */
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdown = document.querySelector('.menu-item.dropdown');
 
+/* MENU MOBILE */
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('open');
 });
 
 /* DROPDOWN MOBILE */
-const dropdownToggle = document.querySelector('.dropdown-toggle');
-const dropdownItem = document.querySelector('.menu-item.dropdown');
-
 dropdownToggle.addEventListener('click', (e) => {
   if (window.innerWidth <= 768) {
     e.preventDefault();
-    dropdownItem.classList.toggle('open');
+    dropdown.classList.toggle('open');
   }
 });
 
-/* TESTE SUPABASE (não interfere no menu) */
+/* TESTE SUPABASE */
 async function testSupabase() {
   const { data, error } = await supabase
     .from('servicos')
