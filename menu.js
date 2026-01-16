@@ -13,23 +13,22 @@ menuToggle.addEventListener('click', () => {
 /* DROPDOWN MOBILE */
 dropdownToggle.addEventListener('click', (e) => {
   if (window.innerWidth <= 768) {
-    e.preventDefault(); // só no mobile
+    e.preventDefault();
     dropdown.classList.toggle('open');
   }
 });
 
-/* TESTE SUPABASE (não interfere no menu) */
+/* SUPABASE OK — NÃO INTERFERE NO MENU */
 async function testSupabase() {
   const { data, error } = await supabase
     .from('servicos')
-    .select('*')
+    .select('*');
 
   if (error) {
-    console.error('Erro Supabase:', error)
+    console.error('Erro Supabase:', error);
   } else {
-    console.log('Dados Supabase:', data)
+    console.log('Dados Supabase:', data);
   }
 }
 
 testSupabase();
-
