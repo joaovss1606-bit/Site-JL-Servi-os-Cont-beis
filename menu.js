@@ -12,3 +12,17 @@ dropdownToggle.addEventListener('click', (e) => {
   e.preventDefault();
   dropdown.classList.toggle('open');
 });
+async function testSupabase() {
+  const { data, error } = await supabase
+    .from('servicos')
+    .select('*')
+    .limit(1)
+
+  if (error) {
+    console.error('Erro Supabase:', error)
+  } else {
+    console.log('Dados Supabase:', data)
+  }
+}
+
+testSupabase()
