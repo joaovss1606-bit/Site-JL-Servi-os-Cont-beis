@@ -13,7 +13,7 @@ menuToggle.addEventListener('click', () => {
 /* DROPDOWN MOBILE */
 dropdownToggle.addEventListener('click', (e) => {
   if (window.innerWidth <= 768) {
-    e.preventDefault();
+    e.preventDefault(); // só no mobile
     dropdown.classList.toggle('open');
   }
 });
