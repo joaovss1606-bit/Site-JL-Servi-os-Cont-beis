@@ -70,6 +70,26 @@ body {
   color: #0b1c2d;
 }
 
+/* BOTÃO SERVIÇOS IGUAL AOS LINKS */
+.dropdown-toggle {
+  all: unset;               /* remove estilo padrão do button */
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dropdown-toggle:hover {
+  background: #ffffff;
+  color: #0b1c2d;
+}
+
+
 /* BLOG */
 .blog-home {
   display: grid;
