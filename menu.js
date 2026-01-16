@@ -1,4 +1,3 @@
-import { supabase } from './supabase'
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 const dropdownToggle = document.querySelector('.dropdown-toggle');
