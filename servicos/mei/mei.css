@@ -1,27 +1,13 @@
-/* ===== BASE DA PÁGINA MEI ===== */
-
-.page-header {
-  text-align: center;
-  margin: 40px 0 50px;
-}
-
-.page-header h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.page-header p {
-  color: #bd9617;
-  font-size: 1.1rem;
+/* ===== BASE ===== */
+.mei-page {
+  padding: 40px 0 80px;
 }
 
 /* ===== BREADCRUMB ===== */
-
 .breadcrumb {
   margin-top: 20px;
-  font-size: 0.9rem;
-  color: #ccc;
+  font-size: 14px;
+  color: #ffffffcc;
 }
 
 .breadcrumb a {
@@ -29,102 +15,159 @@
   text-decoration: none;
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
+.breadcrumb span {
+  margin: 0 6px;
 }
 
-/* ===== GRID PRINCIPAL ===== */
-
-.services-layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 30px;
-  margin-top: 40px;
+/* ===== HEADER ===== */
+.mei-header {
+  text-align: center;
+  margin: 50px 0 60px;
 }
 
-/* ===== CARD PADRÃO ===== */
+.mei-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
 
-.card {
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
-  padding: 25px;
+.mei-header p {
+  color: #ffffffcc;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===== SECTIONS ===== */
+.mei-section {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+}
+
+.mei-section h2 {
+  margin-bottom: 30px;
+  font-size: 1.8rem;
 }
 
 /* ===== SERVIÇOS AVULSOS ===== */
-
-.services-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-}
-
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .service-card {
-  background: #ffffff;
-  color: #0b1c2d;
-  padding: 15px;
-  border-radius: 12px;
+  background: rgba(11,28,45,0.9);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 14px;
   text-align: center;
   font-weight: 600;
+  color: #ffffff;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
+  text-decoration: none;
 }
 
 .service-card:hover {
   background: #bd9617;
   color: #0b1c2d;
+  transform: translateY(-4px);
 }
 
 /* ===== PLANOS ===== */
-
-.plan-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 8px;
+.plans-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.plan-card .price {
+.plans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.plan-card {
+  background: rgba(11,28,45,0.95);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 15px;
   color: #bd9617;
+  margin-bottom: 25px;
 }
 
 .plan-card ul {
   list-style: none;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 35px;
 }
 
 .plan-card ul li {
-  margin-bottom: 8px;
-  font-size: 0.95rem;
+  margin-bottom: 12px;
+  line-height: 1.5;
 }
 
-/* ===== PLANO DESTAQUE ===== */
-
-.plan-card.featured {
-  border: 2px solid #bd9617;
-  position: relative;
-}
-
-.plan-card .badge {
+/* ===== BADGE ===== */
+.badge {
   position: absolute;
-  top: -12px;
-  right: 15px;
+  top: -14px;
+  right: 20px;
   background: #bd9617;
   color: #0b1c2d;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 13px;
   font-weight: 700;
 }
 
-/* ===== RESPONSIVO ===== */
+/* ===== BOTÕES ===== */
+.btn-plan {
+  margin-top: auto;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #ffffff;
+  color: #0b1c2d;
+  transition: 0.25s;
+}
 
-@media (max-width: 900px) {
-  .services-layout {
+.btn-plan:hover {
+  background: #bd9617;
+  color: #0b1c2d;
+}
+
+.btn-plan.destaque {
+  background: #bd9617;
+  color: #0b1c2d;
+}
+
+.btn-plan.destaque:hover {
+  background: #ffffff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .mei-section {
+    padding: 25px;
+  }
+
+  .plans-grid {
     grid-template-columns: 1fr;
   }
 }
+
