@@ -1,98 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Serviços MEI | J L Serviços Contábeis</title>
+  <meta charset="UTF-8">
+  <title>Serviços para MEI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS GLOBAL DO SITE (OBRIGATÓRIO) -->
-  <link rel="stylesheet" href="/jl-servicos-contabeis/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #f5f6f8;
+      color: #0b1c2d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 50px;
+      color: #555;
+      font-size: 16px;
+    }
+
+    /* SERVIÇOS AVULSOS */
+    .servicos-avulsos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .servico-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .servico-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    }
+
+    .servico-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .servico-card p {
+      margin: 0;
+      color: #555;
+    }
+
+    /* PLANOS */
+    .planos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .plano-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .plano-card.destaque {
+      border: 3px solid #bd9617;
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: #bd9617;
+      color: #0b1c2d;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .plano-card h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .preco {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .plano-card ul {
+      padding-left: 20px;
+      margin-bottom: 40px;
+    }
+
+    .plano-card li {
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .btn-plano {
+      margin-top: auto;
+      text-align: center;
+      padding: 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      background: #bd9617;
+      color: #0b1c2d;
+      transition: background 0.2s ease;
+    }
+
+    .btn-plano:hover {
+      background: #a88414;
+    }
+
+    /* CTA FIXO */
+    .btn-falar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0b1c2d;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .planos {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- BREADCRUMB -->
-  <nav class="breadcrumb container">
-    <a href="/jl-servicos-contabeis/index.html">Início</a> ›
-    <a href="/jl-servicos-contabeis/servicos/">Serviços</a> ›
-    <span>MEI</span>
-  </nav>
-
-  <main class="container">
-
-    <!-- CABEÇALHO -->
-    <section class="page-header">
-      <h1>Serviços para MEI</h1>
-      <p>Soluções completas para manter seu MEI regularizado e seguro.</p>
-    </section>
+  <div class="container">
+    <h1>Serviços para MEI</h1>
+    <p class="subtitulo">
+      Serviços avulsos e planos completos para manter seu MEI regularizado,
+      organizado e sem dor de cabeça.
+    </p>
 
     <!-- SERVIÇOS AVULSOS -->
-    <section class="services-section">
-      <h2>Serviços Avulsos</h2>
+    <section class="servicos-avulsos">
+      <a href="/servicos/mei/compra/?servico=abertura-mei" class="servico-card">
+        <h3>Abertura de MEI</h3>
+        <p>Formalização completa do seu MEI.</p>
+      </a>
 
-      <div class="services-grid">
-        <a href="/servicos/mei/compra/?servico=abertura-mei" class="service-card">
-          Abertura de MEI
-        </a>
-        <a href="/servicos/mei/compra/?servico=alteracao-mei" class="service-card">
-          Alteração de MEI
-        </a>
-        <a href="/servicos/mei/compra/?servico=baixa-mei" class="service-card">
-          Baixa de MEI
-        </a>
-        <a href="/servicos/mei/compra/?servico=das-mei" class="service-card">
-          Emissão de DAS
-        </a>
-        <a href="/servicos/mei/compra/?servico=declaracao-mei" class="service-card">
-          Declaração Anual (DASN)
-        </a>
-        <a href="/servicos/mei/compra/?servico=parcelamento-mei" class="service-card">
-          Parcelamento de Débitos
-        </a>
-      </div>
+      <a href="/servicos/mei/compra/?servico=alteracao-mei" class="servico-card">
+        <h3>Alteração de MEI</h3>
+        <p>Atualização de dados cadastrais.</p>
+      </a>
+
+      <a href="/servicos/mei/compra/?servico=baixa-mei" class="servico-card">
+        <h3>Baixa de MEI</h3>
+        <p>Encerramento correto e seguro.</p>
+      </a>
     </section>
 
     <!-- PLANOS -->
-    <section class="plans-section">
-      <h2>Planos MEI</h2>
+    <section class="planos">
+      <div class="plano-card">
+        <h2>Plano MEI Básico</h2>
+        <span class="preco">R$ 99,00</span>
+        <ul>
+          <li>Emissão mensal do DAS</li>
+          <li>Declaração anual (DASN)</li>
+          <li>Lembretes de vencimento</li>
+          <li>Suporte básico via WhatsApp</li>
+        </ul>
+        <a href="#" class="btn-plano">Contratar plano</a>
+      </div>
 
-      <div class="plans-grid">
-
-        <div class="plan-card">
-          <h3>Plano MEI Básico</h3>
-          <p class="price">R$ 99,00 / mês</p>
-          <ul>
-            <li>✔ Emissão mensal do DAS</li>
-            <li>✔ Declaração Anual (DASN)</li>
-            <li>✔ Lembretes de vencimento</li>
-            <li>✔ Suporte básico via WhatsApp</li>
-          </ul>
-          <a href="#" class="btn">Contratar plano</a>
-        </div>
-
-        <div class="plan-card featured">
-          <span class="badge">Mais adequado</span>
-          <h3>Plano MEI Premium</h3>
-          <p class="price">R$ 159,00 / mês</p>
-          <ul>
-            <li>✔ Todos os serviços do Básico</li>
-            <li>✔ Alterações cadastrais inclusas</li>
-            <li>✔ Regularização de débitos</li>
-            <li>✔ Suporte prioritário</li>
-            <li>✔ Orientação personalizada</li>
-          </ul>
-          <a href="#" class="btn">Contratar plano</a>
-        </div>
-
+      <div class="plano-card destaque">
+        <span class="badge">Mais adequado</span>
+        <h2>Plano MEI Premium</h2>
+        <span class="preco">R$ 159,00</span>
+        <ul>
+          <li>Todos os serviços do Plano Básico</li>
+          <li>Alterações cadastrais inclusas</li>
+          <li>Regularização de débitos</li>
+          <li>Atendimento prioritário</li>
+          <li>Orientação personalizada</li>
+        </ul>
+        <a href="#" class="btn-plano">Contratar plano</a>
       </div>
     </section>
+  </div>
 
-  </main>
-
-  <!-- CTA FIXO -->
-  <a href="https://wa.me/5500000000000" class="cta-fixed" target="_blank">
-    Falar sobre MEI
-  </a>
+  <a href="#" class="btn-falar">Falar sobre MEI</a>
 
 </body>
 </html>
