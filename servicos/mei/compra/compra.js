@@ -104,8 +104,6 @@ servico.inclusos.forEach(item => {
 const form = document.getElementById('form-pedido')
 const btnEnviar = document.getElementById('btn-enviar')
 
-btnEnviar.disabled = true
-
 const camposObrigatorios = ['nome', 'email', 'cpf', 'whatsapp']
 
 function validarFormulario() {
@@ -122,10 +120,9 @@ camposObrigatorios.forEach(id => {
   document.getElementById(id).addEventListener('input', validarFormulario)
 })
 
-// 🚫 BLOQUEIA QUALQUER SUBMIT NATIVO
 form.addEventListener('submit', e => e.preventDefault())
 
-// ================= ENVIO REAL =================
+// ================= ENVIO =================
 btnEnviar.addEventListener('click', async () => {
   if (btnEnviar.disabled) return
 
@@ -134,11 +131,11 @@ btnEnviar.addEventListener('click', async () => {
 
   const pedido = {
     servico: servicoKey,
-    nome: document.getElementById('nome').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    cpf: document.getElementById('cpf').value.trim(),
-    whatsapp: document.getElementById('whatsapp').value.trim(),
-    obs: document.getElementById('obs').value.trim()
+    nome: nome.value.trim(),
+    email: email.value.trim(),
+    cpf: cpf.value.trim(),
+    whatsapp: whatsapp.value.trim(),
+    obs: obs.value.trim()
   }
 
   const { error } = await supabase.from('pedidos').insert(pedido)
@@ -161,35 +158,22 @@ Novo pedido de serviço:
 📝 Observações: ${pedido.obs || 'Nenhuma'}
 `.trim()
 
-  const url = `https://wa.me/61920041427?text=${encodeURIComponent(mensagem)}`
-  window.open(url, '_blank')
-
-  btnEnviar.textContent = 'Pedido enviado'
+  window.location.href =
+    `https://wa.me/61920041427?text=${encodeURIComponent(mensagem)}`
 })
 
-// ================= MÁSCARAS CPF / WHATSAPP =================
-
-const campoCPF = document.getElementById('cpf')
-const campoWhats = document.getElementById('whatsapp')
-
-// CPF: 000.000.000-00
-campoCPF.addEventListener('input', () => {
-  let v = campoCPF.value.replace(/\D/g, '').slice(0, 11)
-
+// ================= MÁSCARAS =================
+cpf.addEventListener('input', () => {
+  let v = cpf.value.replace(/\D/g, '').slice(0, 11)
   v = v.replace(/(\d{3})(\d)/, '$1.$2')
   v = v.replace(/(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
   v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4')
-
-  campoCPF.value = v
+  cpf.value = v
 })
 
-// WhatsApp: (00) 00000-0000
-campoWhats.addEventListener('input', () => {
-  let v = campoWhats.value.replace(/\D/g, '').slice(0, 11)
-
+whatsapp.addEventListener('input', () => {
+  let v = whatsapp.value.replace(/\D/g, '').slice(0, 11)
   v = v.replace(/^(\d{2})(\d)/, '($1) $2')
   v = v.replace(/(\d{5})(\d)/, '$1-$2')
-
-  campoWhats.value = v
+  whatsapp.value = v
 })
-
