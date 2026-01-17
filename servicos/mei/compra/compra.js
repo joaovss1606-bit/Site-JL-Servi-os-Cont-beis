@@ -107,5 +107,5 @@ form.addEventListener('submit', async (e) => {
   `Observações: ${data.obs || 'Nenhuma'}`
 
   window.location.href =
-    `https://ea.me/61920041427?text=${encodeURIComponent(msg)}`
+    `https://wa.me/61920041427?text=${encodeURIComponent(msg)}`
 })
