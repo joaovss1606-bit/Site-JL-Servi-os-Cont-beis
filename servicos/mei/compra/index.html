@@ -2,67 +2,74 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contratação de Serviço MEI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compra de Serviço | MEI</title>
 
   <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="/jl-servicos-contabeis/style.css">
-  <!-- CSS LOCAL -->
+  <!-- CSS DA COMPRA -->
   <link rel="stylesheet" href="./compra.css">
 </head>
 
 <body>
 
-  <main class="container compra-page">
+<main class="container compra-page">
 
-    <!-- RESUMO -->
-    <section class="compra-resumo">
-      <h1 id="titulo-servico"></h1>
+  <!-- TÍTULO -->
+  <header class="compra-header">
+    <h1 id="titulo-servico">Serviço</h1>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <section class="compra-content">
+
+    <!-- DESCRIÇÃO -->
+    <div class="compra-card descricao">
+      <h2>O que está incluso</h2>
       <ul id="lista-inclusos"></ul>
-    </section>
+    </div>
 
     <!-- FORMULÁRIO -->
-    <section class="compra-form">
-      <h2>Preencha seus dados</h2>
+    <div class="compra-card formulario">
+      <h2>Seus dados</h2>
 
       <form id="form-pedido">
         <input type="hidden" id="servico" name="servico">
 
         <label>
-          Nome completo
-          <input type="text" name="nome" required>
+          Nome *
+          <input type="text" id="nome" required>
         </label>
 
         <label>
           CPF
-          <input type="text" name="cpf" required>
+          <input type="text" id="cpf">
         </label>
 
         <label>
-          WhatsApp
-          <input type="text" name="whatsapp" required>
+          WhatsApp *
+          <input type="text" id="whatsapp" required>
         </label>
 
         <label>
-          Observações (opcional)
-          <textarea name="obs"></textarea>
+          Observações
+          <textarea id="obs"></textarea>
         </label>
 
-        <button type="submit" class="btn">
+        <button type="submit" id="btn-enviar" disabled>
           Enviar pedido
         </button>
       </form>
-    </section>
 
-    <!-- WHATSAPP -->
-    <section class="compra-whatsapp">
-      <a id="btn-whatsapp" target="_blank" class="btn-outline">
-        Falar no WhatsApp
+      <a id="btn-whatsapp" class="btn-whatsapp disabled">
+        Falar com especialista
       </a>
-    </section>
+    </div>
 
-  </main>
+  </section>
 
-  <script type="module" src="./compra.js"></script>
+</main>
+
+<script src="./compra.js"></script>
 </body>
 </html>
