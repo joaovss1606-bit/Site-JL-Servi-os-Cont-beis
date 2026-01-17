@@ -1,61 +1,120 @@
-const services = {
-  "abertura-mei": {
-    title: "Abertura de MEI",
-    description: "Formalizamos seu MEI de forma rápida e segura.",
-    includes: [
-      "Cadastro completo no Portal do Empreendedor",
-      "Orientação sobre atividades permitidas",
-      "Emissão do CNPJ",
-      "Suporte durante o processo"
+import { supabase } from '/jl-servicos-contabeis/supabase.js'
+
+const servicos = {
+  'abertura-mei': {
+    titulo: 'Abertura de MEI',
+    inclusos: [
+      'Análise do perfil do empreendedor',
+      'Cadastro no Portal do Empreendedor',
+      'Definição correta da atividade (CNAE)',
+      'Emissão do CNPJ',
+      'Orientações iniciais',
+      'Suporte após a abertura'
     ]
   },
-  "regularizacao-mei": {
-    title: "Regularização de MEI",
-    description: "Colocamos seu MEI em dia com a Receita.",
-    includes: [
-      "Análise de pendências",
-      "Regularização fiscal",
-      "Orientação personalizada"
+  'regularizacao-mei': {
+    titulo: 'Regularização de MEI',
+    inclusos: [
+      'Diagnóstico da situação',
+      'Identificação de pendências',
+      'Regularização de DAS',
+      'Orientações fiscais',
+      'Suporte completo'
     ]
   },
-  "dasn": {
-    title: "Declaração Anual (DASN-SIMEI)",
-    description: "Envio correto da sua declaração anual obrigatória.",
-    includes: [
-      "Apuração de faturamento",
-      "Envio da DASN",
-      "Comprovante de entrega"
+  'encerramento-mei': {
+    titulo: 'Encerramento de MEI',
+    inclusos: [
+      'Análise antes da baixa',
+      'Encerramento correto',
+      'Verificação de pendências',
+      'Orientações pós-baixa',
+      'Suporte'
+    ]
+  },
+  'emissao-das': {
+    titulo: 'Emissão de DAS',
+    inclusos: [
+      'Emissão da guia DAS',
+      'Orientações de vencimento',
+      'Envio da guia',
+      'Suporte'
+    ]
+  },
+  'dasn': {
+    titulo: 'Declaração Anual DASN-SIMEI',
+    inclusos: [
+      'Conferência de dados',
+      'Envio da declaração',
+      'Comprovante',
+      'Orientações'
+    ]
+  },
+  'parcelamento': {
+    titulo: 'Parcelamento de Débitos',
+    inclusos: [
+      'Análise dos débitos',
+      'Simulação de parcelamento',
+      'Solicitação junto à Receita',
+      'Orientações'
+    ]
+  },
+  'alteracao-mei': {
+    titulo: 'Alteração de Dados do MEI',
+    inclusos: [
+      'Alteração cadastral',
+      'Atualização no portal',
+      'Conferência final',
+      'Orientações'
     ]
   }
-};
-
-const params = new URLSearchParams(window.location.search);
-const servico = params.get("servico");
-
-if (services[servico]) {
-  document.getElementById("service-title").textContent = services[servico].title;
-  document.getElementById("service-description").textContent = services[servico].description;
-
-  const list = document.getElementById("service-includes");
-  services[servico].includes.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    list.appendChild(li);
-  });
 }
 
-document.getElementById("compraForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+// CAPTURA SERVIÇO
+const params = new URLSearchParams(window.location.search)
+const servicoKey = params.get('servico')
 
-  const formData = new FormData(this);
-  const mensagem = `
-Serviço: ${document.getElementById("service-title").textContent}
-Nome: ${formData.get("nome")}
-WhatsApp: ${formData.get("whatsapp")}
-Email: ${formData.get("email")}
-Mensagem: ${formData.get("mensagem")}
-`;
+const servico = servicos[servicoKey]
 
-  const url = "https://wa.me/5500000000000?text=" + encodeURIComponent(mensagem);
-  window.open(url, "_blank");
-});
+if (!servico) {
+  document.body.innerHTML = '<p>Serviço não encontrado.</p>'
+  throw new Error('Serviço inválido')
+}
+
+// RENDERIZA
+document.getElementById('titulo-servico').textContent = servico.titulo
+document.getElementById('servico').value = servicoKey
+
+const lista = document.getElementById('lista-inclusos')
+servico.inclusos.forEach(item => {
+  const li = document.createElement('li')
+  li.textContent = item
+  lista.appendChild(li)
+})
+
+// WHATSAPP
+document.getElementById('btn-whatsapp').href =
+  `https://wa.me/5500000000000?text=Olá, quero contratar o serviço: ${servico.titulo}`
+
+// FORM
+document.getElementById('form-pedido').addEventListener('submit', async (e) => {
+  e.preventDefault()
+
+  const formData = new FormData(e.target)
+
+  const pedido = {
+    servico: formData.get('servico'),
+    nome: formData.get('nome'),
+    cpf: formData.get('cpf'),
+    whatsapp: formData.get('whatsapp'),
+    obs: formData.get('obs')
+  }
+
+  const { error } = await supabase.from('pedidos').insert(pedido)
+
+  if (error) {
+    alert('Erro ao enviar pedido')
+  } else {
+    alert('Pedido enviado com sucesso!')
+  }
+})
