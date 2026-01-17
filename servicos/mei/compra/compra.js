@@ -98,10 +98,13 @@ form.addEventListener('submit', async (e) => {
 
   await supabase.from('pedidos').insert(data)
 
-  const msg =
-    `Olá! Gostaria de contratar o serviço: ${servico.titulo}\n\n` +
-    `Nome: ${data.nome}\nCPF: ${data.cpf}\nWhatsApp: ${data.whatsapp}\n` +
-    `Observações: ${data.obs || 'Nenhuma'}`
+ const msg =
+  `Olá! Gostaria de contratar o serviço: ${servico.titulo}\n\n` +
+  `Nome: ${data.nome}\n` +
+  `E-mail: ${data.email}\n` +
+  `CPF: ${data.cpf}\n` +
+  `WhatsApp: ${data.whatsapp}\n\n` +
+  `Observações: ${data.obs || 'Nenhuma'}`
 
   window.location.href =
     `https://ea.me/61920041427?text=${encodeURIComponent(msg)}`
