@@ -71,11 +71,16 @@ const servicos = {
   }
 }
 
-// ================= CAPTURA DO SERVIÇO =================
+// ================= SERVIÇO (URL → STORAGE) =================
 const params = new URLSearchParams(window.location.search)
-const servicoKey = params.get('servico')
+const servicoURL = params.get('servico')
 
-// 🔒 trava o serviço em memória
+if (servicoURL && servicos[servicoURL]) {
+  sessionStorage.setItem('servicoSelecionado', servicoURL)
+}
+
+const servicoKey = sessionStorage.getItem('servicoSelecionado')
+
 if (!servicoKey || !servicos[servicoKey]) {
   alert('Serviço inválido ou não informado.')
   throw new Error('Serviço inválido')
@@ -83,7 +88,7 @@ if (!servicoKey || !servicos[servicoKey]) {
 
 const servico = servicos[servicoKey]
 
-// ================= RENDERIZAÇÃO =================
+// ================= RENDER =================
 document.getElementById('titulo-servico').textContent = servico.titulo
 document.getElementById('servico').value = servicoKey
 
@@ -95,9 +100,11 @@ servico.inclusos.forEach(item => {
   lista.appendChild(li)
 })
 
-// ================= FORMULÁRIO =================
+// ================= FORM =================
 const form = document.getElementById('form-pedido')
 const btnEnviar = document.getElementById('btn-enviar')
+
+btnEnviar.disabled = true
 
 const camposObrigatorios = ['nome', 'email', 'cpf', 'whatsapp']
 
@@ -107,50 +114,44 @@ function validarFormulario() {
     return campo && campo.value.trim() !== ''
   })
 
-  if (valido) {
-    btnEnviar.classList.add('ativo')
-    btnEnviar.disabled = false
-  } else {
-    btnEnviar.classList.remove('ativo')
-    btnEnviar.disabled = true
-  }
+  btnEnviar.disabled = !valido
+  btnEnviar.classList.toggle('ativo', valido)
 }
 
 camposObrigatorios.forEach(id => {
   document.getElementById(id).addEventListener('input', validarFormulario)
 })
 
-// ================= ENVIO =================
-form.addEventListener('submit', async (e) => {
-  e.preventDefault() // 🔥 ISSO É O MAIS IMPORTANTE
+// 🚫 BLOQUEIA QUALQUER SUBMIT NATIVO
+form.addEventListener('submit', e => e.preventDefault())
+
+// ================= ENVIO REAL =================
+btnEnviar.addEventListener('click', async () => {
+  if (btnEnviar.disabled) return
 
   btnEnviar.textContent = 'Enviando...'
   btnEnviar.disabled = true
 
-  const formData = new FormData(form)
-
   const pedido = {
     servico: servicoKey,
-    nome: formData.get('nome'),
-    email: formData.get('email'),
-    cpf: formData.get('cpf'),
-    whatsapp: formData.get('whatsapp'),
-    obs: formData.get('obs')
+    nome: document.getElementById('nome').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    cpf: document.getElementById('cpf').value.trim(),
+    whatsapp: document.getElementById('whatsapp').value.trim(),
+    obs: document.getElementById('obs').value.trim()
   }
 
-  // SALVA NO SUPABASE
   const { error } = await supabase.from('pedidos').insert(pedido)
 
   if (error) {
-    alert('Erro ao enviar pedido.')
+    alert('Erro ao salvar o pedido.')
     btnEnviar.textContent = 'Enviar pedido'
     btnEnviar.disabled = false
     return
   }
 
-  // WHATSAPP
   const mensagem = `
-Olá! Novo pedido de serviço:
+Novo pedido de serviço:
 
 📌 Serviço: ${servico.titulo}
 👤 Nome: ${pedido.nome}
@@ -158,7 +159,7 @@ Olá! Novo pedido de serviço:
 📄 CPF: ${pedido.cpf}
 📱 WhatsApp: ${pedido.whatsapp}
 📝 Observações: ${pedido.obs || 'Nenhuma'}
-  `.trim()
+`.trim()
 
   const url = `https://wa.me/61920041427?text=${encodeURIComponent(mensagem)}`
   window.open(url, '_blank')
