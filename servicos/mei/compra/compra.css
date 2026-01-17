@@ -58,3 +58,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+.compra-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.compra-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.compra-card {
+  background: inherit;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+#btn-enviar {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: not-allowed;
+  background: #ccc;
+}
+
+#btn-enviar.ativo {
+  background: #bd9617;
+  color: #0b1c2d;
+  cursor: pointer;
+}
+
+.btn-whatsapp {
+  display: block;
+  margin-top: 16px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  background: #0b1c2d;
+  color: #fff;
+}
+
+.btn-whatsapp.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
