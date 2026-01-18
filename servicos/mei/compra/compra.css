@@ -108,3 +108,43 @@
     padding: 60px 20px;
   }
 }
+
+/* CARD PLANO DESTACADO */
+.card-plano {
+  background: linear-gradient(135deg, #bd9617, #d4af37);
+  border-radius: 20px;
+  padding: 32px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* LISTA DE BENEFÍCIOS */
+.card-plano ul li {
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+/* PREÇO EM DESTAQUE */
+.preco-plano {
+  margin-top: 28px;
+  background: #ffffff;
+  color: #0b1c2d;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+}
+
+.preco-plano span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.preco-plano strong {
+  font-size: 36px;
+  font-weight: 800;
+  margin-top: 6px;
+}
