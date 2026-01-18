@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contratar Serviço | J L Serviços Contábeis</title>
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="/jl-servicos-contabeis/style.css">
+  <!-- CSS COMPRA -->
+  <link rel="stylesheet" href="./compra.css">
+</head>
+
+<body>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb container">
+    <a href="/jl-servicos-contabeis/">Início</a>
+    <span>›</span>
+
+    <a href="/jl-servicos-contabeis/">Serviços</a>
+    <span>›</span>
+
+    <a href="/jl-servicos-contabeis/servicos/mei/">MEI</a>
+    <span>›</span>
+
+    <strong id="breadcrumb-servico">Serviço</strong>
+  </nav>
+
+  <main class="container compra-page">
+
+    <!-- ===== TÍTULO ===== -->
+    <header class="compra-header">
+      <h1 id="titulo-servico">Serviço</h1>
+
+      <!-- VALOR -->
+      <div id="valor-plano" class="valor-plano"></div>
+
+      <!-- ===== AVISO DE ECONOMIA (SERVIÇOS AVULSOS) ===== -->
+      <div id="aviso-economia" class="aviso-economia" style="display:none"></div>
+    </header>
+
+    <!-- ===== GRID ===== -->
+    <section class="compra-grid">
+
+      <!-- ===== DESCRIÇÃO ===== -->
+      <div class="card-descricao">
+
+        <!-- CARD PREMIUM (exclusivo da página de compra) -->
+        <div id="mensagem-premium" class="card-premium" style="display:none">
+          ⭐ Você está fazendo a escolha certa!
+        </div>
+
+        <h2>O que está incluso</h2>
+        <ul id="lista-inclusos"></ul>
+      </div>
+
+      <!-- ===== FORMULÁRIO ===== -->
+      <div class="card-form">
+        <h2>Seus dados</h2>
+
+        <form id="form-pedido">
+
+          <label>
+            Nome completo*
+            <input type="text" name="nome" required>
+          </label>
+
+          <label>
+            E-mail*
+            <input type="email" name="email" required>
+          </label>
+
+          <label>
+            CPF*
+            <input type="text" name="cpf" required>
+          </label>
+
+          <label>
+            WhatsApp*
+            <input type="text" name="whatsapp" required>
+          </label>
+
+          <label>
+            Observações
+            <textarea name="obs" rows="3"></textarea>
+          </label>
+
+          <button id="btn-enviar" type="submit" disabled>
+            Enviar pedido
+          </button>
+
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="./compra.js"></script>
+</body>
+</html>
