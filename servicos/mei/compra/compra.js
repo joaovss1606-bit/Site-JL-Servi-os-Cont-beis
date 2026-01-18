@@ -32,69 +32,84 @@ const servicos = {
       'Orientações pós-baixa',
       'Suporte'
     ]
-  },
-  'emissao-das': {
-    titulo: 'Emissão de DAS',
-    inclusos: [
-      'Emissão da guia DAS',
-      'Orientações de vencimento',
-      'Envio da guia',
-      'Suporte'
+  }
+}
+
+// ================= PLANOS =================
+const planos = {
+  basico: {
+    nome: 'Plano Básico',
+    valor: 'R$ 149,90',
+    beneficios: [
+      'Execução do serviço escolhido',
+      'Entrega padrão',
+      'Orientações essenciais'
     ]
   },
-  'dasn': {
-    titulo: 'Declaração Anual DASN-SIMEI',
-    inclusos: [
-      'Conferência de dados',
-      'Envio da declaração',
-      'Comprovante',
-      'Orientações'
-    ]
-  },
-  'parcelamento': {
-    titulo: 'Parcelamento de Débitos',
-    inclusos: [
-      'Análise dos débitos',
-      'Simulação de parcelamento',
-      'Solicitação junto à Receita',
-      'Orientações'
-    ]
-  },
-  'alteracao-mei': {
-    titulo: 'Alteração de Dados do MEI',
-    inclusos: [
-      'Alteração cadastral',
-      'Atualização no portal',
-      'Conferência final',
-      'Orientações'
+  premium: {
+    nome: 'Plano Premium',
+    valor: 'R$ 249,90',
+    beneficios: [
+      'Execução do serviço escolhido',
+      'Atendimento prioritário',
+      'Suporte estendido',
+      'Acompanhamento pós-serviço'
     ]
   }
 }
 
-// ================= SERVIÇO =================
+// ================= PARAMS =================
 const params = new URLSearchParams(window.location.search)
 const servicoKey = params.get('servico')
+const planoKey = params.get('plano')
 
-if (!servicoKey || !servicos[servicoKey]) {
-  alert('Serviço inválido.')
-  throw new Error('Serviço inválido')
+// ================= IDENTIFICA CONTEXTO =================
+let tituloFinal = ''
+let listaItens = []
+let tipoPedido = ''
+let valorPlano = ''
+
+if (planoKey && planos[planoKey]) {
+  // ===== PÁGINA DE PLANO =====
+  const plano = planos[planoKey]
+  tituloFinal = plano.nome
+  listaItens = plano.beneficios
+  tipoPedido = plano.nome
+  valorPlano = plano.valor
+
+  // frase exclusiva premium
+  if (planoKey === 'premium') {
+    const msg = document.getElementById('mensagem-premium')
+    if (msg) msg.style.display = 'block'
+  }
+} else if (servicoKey && servicos[servicoKey]) {
+  // ===== SERVIÇO AVULSO =====
+  const servico = servicos[servicoKey]
+  tituloFinal = servico.titulo
+  listaItens = servico.inclusos
+  tipoPedido = servico.titulo
+} else {
+  alert('Serviço ou plano inválido.')
+  throw new Error('Parâmetros inválidos')
 }
 
-const servico = servicos[servicoKey]
-
 // ================= RENDER =================
-document.getElementById('titulo-servico').textContent = servico.titulo
-document.getElementById('servico').value = servicoKey
+document.getElementById('titulo-servico').textContent = tituloFinal
 
 const lista = document.getElementById('lista-inclusos')
 lista.innerHTML = ''
-servico.inclusos.forEach(item => {
+listaItens.forEach(item => {
   const li = document.createElement('li')
   li.textContent = item
   lista.appendChild(li)
 })
 
-// ================= CAMPOS =================
+if (valorPlano) {
+  const elValor = document.getElementById('valor-plano')
+  if (elValor) elValor.textContent = valorPlano
+}
+
+// ================= FORM =================
 const form = document.getElementById('form-pedido')
 const btnEnviar = document.getElementById('btn-enviar')
 
@@ -122,7 +137,6 @@ function validarFormulario() {
   campo.addEventListener('input', validarFormulario)
 })
 
-// bloqueia submit nativo
 form.addEventListener('submit', e => e.preventDefault())
 
 // ================= ENVIO =================
@@ -133,7 +147,9 @@ btnEnviar.addEventListener('click', () => {
   btnEnviar.disabled = true
 
   const pedido = {
-    servico: servicoKey,
+    tipo: planoKey ? 'plano' : 'servico',
+    item: tipoPedido,
+    valor: valorPlano || null,
     nome: campoNome.value.trim(),
     email: campoEmail.value.trim(),
     cpf: campoCPF.value.trim(),
@@ -142,9 +158,11 @@ btnEnviar.addEventListener('click', () => {
   }
 
   const mensagem = `
-Novo pedido de serviço:
+Novo pedido:
 
-📌 Serviço: ${servico.titulo}
+📌 ${pedido.tipo === 'plano' ? 'Plano' : 'Serviço'}: ${pedido.item}
+${pedido.valor ? `💰 Valor: ${pedido.valor}` : ''}
+
 👤 Nome: ${pedido.nome}
 📧 Email: ${pedido.email}
 📄 CPF: ${pedido.cpf}
@@ -152,13 +170,11 @@ Novo pedido de serviço:
 📝 Observações: ${pedido.obs || 'Nenhuma'}
 `.trim()
 
-  // ✅ WhatsApp abre IMEDIATAMENTE
   window.open(
     `https://wa.me/5561920041427?text=${encodeURIComponent(mensagem)}`,
     '_blank'
   )
 
-  // salva em segundo plano
   supabase.from('pedidos').insert(pedido)
 })
 
@@ -177,25 +193,3 @@ campoWhats.addEventListener('input', () => {
   v = v.replace(/(\d{5})(\d)/, '$1-$2')
   campoWhats.value = v
 })
-
-const planos = {
-  basico: {
-    nome: 'Plano Básico',
-    valor: 'R$ 149,90',
-    beneficios: [
-      'Execução do serviço escolhido',
-      'Entrega padrão',
-      'Orientações essenciais'
-    ]
-  },
-  premium: {
-    nome: 'Plano Premium',
-    valor: 'R$ 249,90',
-    beneficios: [
-      'Execução do serviço escolhido',
-      'Atendimento prioritário',
-      'Suporte estendido',
-      'Acompanhamento pós-serviço'
-    ]
-  }
-}
