@@ -5,37 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pessoa Física | J L Serviços Contábeis</title>
 
+  <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="/jl-servicos-contabeis/style.css">
+  <!-- CSS BASE (PADRÃO MEI) -->
   <link rel="stylesheet" href="../mei/mei.css">
 </head>
 
 <body>
 
-<nav class="breadcrumb container">
-  <a href="/jl-servicos-contabeis/">Início</a>
-  <span>›</span>
-  <a href="/jl-servicos-contabeis/servicos/">Serviços</a>
-  <span>›</span>
-  <strong>Pessoa Física</strong>
-</nav>
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="breadcrumb container">
+    <a href="/jl-servicos-contabeis/">Início</a>
+    <span>›</span>
+    <a href="/jl-servicos-contabeis/servicos/">Serviços</a>
+    <span>›</span>
+    <strong>Pessoa Física</strong>
+  </nav>
 
-<main class="container mei-page">
+  <main class="container mei-page">
 
-<header class="mei-header">
-  <h1>Serviços para Pessoa Física</h1>
-  <p>Organização fiscal e regularização para sua vida financeira pessoal.</p>
-</header>
+    <!-- ===== TÍTULO ===== -->
+    <header class="mei-header">
+      <h1>Serviços para Pessoa Física</h1>
+      <p>Organização fiscal, regularização e orientação para sua vida financeira pessoal.</p>
+    </header>
 
-<section class="mei-section">
-  <h2>Serviços Disponíveis</h2>
+    <!-- ===== SERVIÇOS ===== -->
+    <section class="mei-section mei-servicos">
+      <h2>Serviços Disponíveis</h2>
 
-  <div class="services-grid">
-    <a class="service-card" href="/jl-servicos-contabeis/servicos/compra/?servico=irpf">Declaração de Imposto de Renda</a>
-    <a class="service-card" href="/jl-servicos-contabeis/servicos/compra/?servico=cpf-regularizacao">Regularização de CPF</a>
-    <a class="service-card" href="/jl-servicos-contabeis/servicos/compra/?servico=orientacao-fiscal-pf">Orientação Fiscal Pessoa Física</a>
-  </div>
-</section>
+      <div class="services-grid">
 
-</main>
+        <a class="service-card"
+           href="/jl-servicos-contabeis/servicos/compra/?categoria=pessoa-fisica&servico=irpf">
+          Declaração de Imposto de Renda
+          <span>Envio correto e sem riscos</span>
+        </a>
+
+        <a class="service-card"
+           href="/jl-servicos-contabeis/servicos/compra/?categoria=pessoa-fisica&servico=cpf-regularizacao">
+          Regularização de CPF
+          <span>Correção de pendências na Receita</span>
+        </a>
+
+        <a class="service-card"
+           href="/jl-servicos-contabeis/servicos/compra/?categoria=pessoa-fisica&servico=orientacao-fiscal-pf">
+          Orientação Fiscal Pessoa Física
+          <span>Planejamento e esclarecimento tributário</span>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CTA FIXO -->
+  <a href="https://wa.me/5500000000000" class="cta-fixed" target="_blank">
+    Falar sobre Pessoa Física
+  </a>
+
 </body>
 </html>
