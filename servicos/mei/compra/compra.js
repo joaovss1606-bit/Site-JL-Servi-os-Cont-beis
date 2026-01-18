@@ -177,3 +177,25 @@ campoWhats.addEventListener('input', () => {
   v = v.replace(/(\d{5})(\d)/, '$1-$2')
   campoWhats.value = v
 })
+
+const planos = {
+  basico: {
+    nome: 'Plano Básico',
+    valor: 'R$ 149,90',
+    beneficios: [
+      'Execução do serviço escolhido',
+      'Entrega padrão',
+      'Orientações essenciais'
+    ]
+  },
+  premium: {
+    nome: 'Plano Premium',
+    valor: 'R$ 249,90',
+    beneficios: [
+      'Execução do serviço escolhido',
+      'Atendimento prioritário',
+      'Suporte estendido',
+      'Acompanhamento pós-serviço'
+    ]
+  }
+}
