@@ -4,6 +4,7 @@ import { supabase } from '/jl-servicos-contabeis/supabase.js'
 const servicos = {
   'abertura-mei': {
     titulo: 'Abertura de MEI',
+    valor: 'R$ 148,99',
     inclusos: [
       'Análise do perfil do empreendedor',
       'Cadastro no Portal do Empreendedor',
@@ -15,6 +16,7 @@ const servicos = {
   },
   'regularizacao-mei': {
     titulo: 'Regularização de MEI',
+    valor: 'R$ 198,99',
     inclusos: [
       'Diagnóstico da situação',
       'Identificação de pendências',
@@ -25,6 +27,7 @@ const servicos = {
   },
   'encerramento-mei': {
     titulo: 'Encerramento de MEI',
+    valor: 'R$ 128,99',
     inclusos: [
       'Análise antes da baixa',
       'Encerramento correto',
@@ -35,6 +38,7 @@ const servicos = {
   },
   'emissao-das': {
     titulo: 'Emissão de DAS',
+    valor: 'R$ 48,99',
     inclusos: [
       'Emissão da guia DAS',
       'Verificação de valores',
@@ -45,6 +49,7 @@ const servicos = {
   },
   'dasn': {
     titulo: 'Declaração Anual DASN-SIMEI',
+    valor: 'R$ 98,99',
     inclusos: [
       'Conferência das informações',
       'Envio da declaração',
@@ -55,6 +60,7 @@ const servicos = {
   },
   'parcelamento': {
     titulo: 'Parcelamento de Débitos',
+    valor: 'R$ 178,99',
     inclusos: [
       'Análise dos débitos',
       'Simulação de parcelamento',
@@ -65,6 +71,7 @@ const servicos = {
   },
   'alteracao-mei': {
     titulo: 'Alteração de Dados do MEI',
+    valor: 'R$ 78,99',
     inclusos: [
       'Alteração de dados cadastrais',
       'Atualização no Portal do Empreendedor',
